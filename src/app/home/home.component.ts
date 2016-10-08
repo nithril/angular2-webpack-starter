@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
+import {ColumnMode, TableOptions} from "angular2-data-table";
 
 @Component({
   // The selector is what angular internally uses
@@ -21,6 +22,21 @@ import { XLarge } from './x-large';
 export class Home {
   // Set our default values
   localState = { value: '' };
+
+
+  public rows = [{id:"foo" , title:"foo"}];
+
+
+  options = new TableOptions({
+    columnMode: ColumnMode.standard,
+    headerHeight: 50,
+    footerHeight: 0,
+    rowHeight: 50,
+    scrollbarV: true,
+    scrollbarH: true
+  });
+
+
   // TypeScript public modifiers
   constructor(public appState: AppState, public title: Title) {
 
